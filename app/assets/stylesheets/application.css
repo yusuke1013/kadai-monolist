@@ -26,6 +26,11 @@ footer {
   background: url("/images/cover-bg.jpg") center center no-repeat;
   background-size: cover;
 }
+.cover .cover-inner {
+  height: 100%;
+  margin: auto;
+  display: table;
+}
 .cover .cover-inner .cover-contents {
   display: table-cell;
   vertical-align: middle;
