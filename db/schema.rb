@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323011211) do
+ActiveRecord::Schema.define(version: 20180323195513) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 20180323011211) do
     t.index ["user_id"], name: "index_ownerships_on_user_id", using: :btree
   end
 
+  create_table "ownershipshaves", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "type"
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_ownershipshaves_on_item_id", using: :btree
+    t.index ["user_id"], name: "index_ownershipshaves_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email"
@@ -42,4 +52,6 @@ ActiveRecord::Schema.define(version: 20180323011211) do
 
   add_foreign_key "ownerships", "items"
   add_foreign_key "ownerships", "users"
+  add_foreign_key "ownershipshaves", "items"
+  add_foreign_key "ownershipshaves", "users"
 end

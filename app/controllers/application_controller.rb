@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
      code: code,
      name: name,
      url: url,
-     image_url: image_Url,
+     image_url: image_url,
    } 
   end
 end
