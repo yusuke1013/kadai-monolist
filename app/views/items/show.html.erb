@@ -37,7 +37,7 @@
           Haveしたユーザ
         </div>
         <div class="panel-body">
-          <% @want_users.each do |user| %>
+          <% @have_users.each do |user| %>
             <%= link_to user.name, user_path(user) %>
           <% end %>
         </div>
